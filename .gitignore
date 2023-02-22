@@ -24,3 +24,13 @@ yarn-error.log*
 
 .venv/
 __pycache__/
+
+**/.bundle
+**/log/*
+**/tmp/*
+**/tmp/pids/*
+**/tmp/pids/
+**/storage/*
+**/.byebug_history
+**/config/master.key
+**/.keep
