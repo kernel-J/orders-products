@@ -59,7 +59,7 @@ services:
 
   api.products:
     image: api-products:latest
-    container_name: api_products
+    container_name: api-products
     ports:
       - 3001:3000
     build:
