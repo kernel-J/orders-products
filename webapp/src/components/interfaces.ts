@@ -13,16 +13,39 @@ export interface OrderData {
   QA: Order[],
 }
 
+export interface Product {
+    ProductID: number;
+    ProductName: string;
+    ProductPhotoURL: string;
+    ProductOrder: number;
+}
+
+export interface ProductData {
+    Products: Product[]
+}
+
 export interface DraggableItemProps extends Order{
     draggableProvided: DraggableProvided;
-    removeOrder: (order: Order) => void;
+    removeOrder: (item: Order) => void;
+}
+
+export interface DraggableProductItemProps extends Product{
+    draggableProvided: DraggableProvided;
+    removeOrder: (item: Product) => void;
 }
 
 export interface DraggableListProps {
     ID: string;
     listTitle: string;
-    removeOrder: (order: Order) => void;
+    removeOrder: (item: Order) => void;
     items: Order[];
+};
+
+export interface DraggableProductListProps {
+    ID: string;
+    listTitle: string;
+    removeOrder: (item: Product) => void;
+    items: Product[];
 };
 
 export interface HeaderLink {
