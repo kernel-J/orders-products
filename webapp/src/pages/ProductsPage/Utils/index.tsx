@@ -1,7 +1,11 @@
 import { Product } from "../../../components/interfaces";
 
-const calculateProductOrder = (products: Array<Product>, destIndex: number) => {
-  if (products.length < 2) return null;
+const calculateProductOrder = (
+  products: Array<Product>,
+  destIndex: number,
+  srcIndex: number
+) => {
+  if (products.length < 2) return -1;
 
   const productOrder = products[destIndex].ProductOrder;
   let dividend;
@@ -11,7 +15,11 @@ const calculateProductOrder = (products: Array<Product>, destIndex: number) => {
   } else if (destIndex === products.length - 1) {
     dividend = productOrder + (productOrder + 1);
   } else {
-    dividend = productOrder + products[destIndex + 1].ProductOrder;
+    if (destIndex > srcIndex) {
+      dividend = productOrder + products[destIndex + 1].ProductOrder;
+    } else {
+      dividend = productOrder + products[destIndex - 1].ProductOrder;
+    }
   }
 
   return dividend / 2;

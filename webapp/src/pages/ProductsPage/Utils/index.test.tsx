@@ -22,19 +22,25 @@ const products = [
 ];
 
 describe("calculateProductOrder", () => {
-  it("should return null", () => {
-    expect(calculateProductOrder([], 0)).toBeNull();
+  it("should return -1", () => {
+    expect(calculateProductOrder([], 0, 0)).toEqual(-1);
   });
 
   it("should return 0.5", () => {
-    expect(calculateProductOrder(products, 0)).toEqual(0.5);
+    expect(calculateProductOrder(products, 0, 1)).toEqual(0.5);
   });
 
   it("should return 3.5", () => {
-    expect(calculateProductOrder(products, 2)).toEqual(3.5);
+    expect(calculateProductOrder(products, 2, 1)).toEqual(3.5);
   });
 
   it("should return 2.5", () => {
-    expect(calculateProductOrder(products, 1)).toEqual(2.5);
+    expect(calculateProductOrder(products, 1, 0)).toEqual(2.5);
+  });
+
+  describe("when srcIndex > destIndex", () => {
+    it("should return 1.5", () => {
+      expect(calculateProductOrder(products, 1, 2)).toEqual(1.5);
+    });
   });
 });
