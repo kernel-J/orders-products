@@ -2,7 +2,7 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { DragDropContext } from "react-beautiful-dnd";
 import DraggableList from "./DraggableList";
-import { Order, Product } from "../interfaces";
+import { Order } from "../interfaces";
 
 describe("DraggableList", () => {
   it("rendersDraggableList", async () => {
