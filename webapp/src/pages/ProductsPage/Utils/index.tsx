@@ -25,4 +25,16 @@ const calculateProductOrder = (
   return dividend / 2;
 };
 
-export { calculateProductOrder };
+const reorderProducts = (
+  products: Array<Product>,
+  product: Product,
+  destIndex: number,
+  srcIndex: number
+) => {
+  const newProducts = products.filter((_, idx) => idx !== srcIndex);
+  newProducts.splice(destIndex, 0, product);
+
+  return newProducts;
+};
+
+export { calculateProductOrder, reorderProducts };
