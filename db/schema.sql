@@ -80,7 +80,8 @@ CREATE TABLE `Product` (
   `ProductName` varchar(100) NOT NULL,
   `ProductPhotoURL` varchar(255) NOT NULL,
   `ProductStatus` enum('Active','InActive') DEFAULT NULL,
-  PRIMARY KEY (`ProductID`)
+  PRIMARY KEY (`ProductID`),
+  `ProductOrder` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 

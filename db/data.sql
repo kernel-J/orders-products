@@ -82,7 +82,8 @@ CREATE TABLE `Product` (
   `ProductName` varchar(100) NOT NULL,
   `ProductPhotoURL` varchar(255) NOT NULL,
   `ProductStatus` enum('Active','InActive') DEFAULT NULL,
-  PRIMARY KEY (`ProductID`)
+  PRIMARY KEY (`ProductID`),
+  `ProductOrder` float UNSIGNED NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -92,7 +93,7 @@ CREATE TABLE `Product` (
 
 LOCK TABLES `Product` WRITE;
 /*!40000 ALTER TABLE `Product` DISABLE KEYS */;
-INSERT INTO `Product` VALUES (1,'Hat','t','Active'),(2,'Shoes','t','Active'),(3,'Pants','t','Active'),(4,'Shirt','t','InActive'),(5,'Coat','t','InActive');
+INSERT INTO `Product` VALUES (1,'Hat','https://upload.wikimedia.org/wikipedia/commons/f/f3/Collapsible_top_hat_IMGP9692.jpg','Active', 0.25),(2,'Shoes','https://upload.wikimedia.org/wikipedia/commons/2/23/Whole-cut_shoe.jpg','Active', 0.5),(3,'Pants','https://upload.wikimedia.org/wikipedia/commons/c/cd/Cargo_pants_001.jpg','Active', 0.75),(4,'Shirt','https://upload.wikimedia.org/wikipedia/commons/e/e5/Vintage_aloha_shirt_crop.png','InActive', 2),(5,'Coat','https://upload.wikimedia.org/wikipedia/commons/6/6e/Green_ladies_coat.JPG','InActive', 2.25);
 /*!40000 ALTER TABLE `Product` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
