@@ -1,4 +1,4 @@
-import { calculateProductOrder } from "./";
+import { calculateProductOrder, reorderProducts } from "./";
 
 const products = [
   {
@@ -14,7 +14,7 @@ const products = [
     ProductOrder: 2
   },
   {
-    ProductID: 2,
+    ProductID: 3,
     ProductName: "pants",
     ProductPhotoURL: "t",
     ProductOrder: 3
@@ -42,5 +42,30 @@ describe("calculateProductOrder", () => {
     it("should return 1.5", () => {
       expect(calculateProductOrder(products, 1, 2)).toEqual(1.5);
     });
+  });
+});
+
+describe("reorderProducts", () => {
+  it("should return a list with the first and second elements swapped", () => {
+    const newProductList = reorderProducts(products, products[0], 1, 0);
+
+    expect(newProductList[0].ProductID).toEqual(2);
+    expect(newProductList[1].ProductID).toEqual(1);
+  });
+
+  it("should return a list with first element in the last postion", () => {
+    const newProductList = reorderProducts(products, products[0], 2, 0);
+
+    expect(newProductList[0].ProductID).toEqual(2);
+    expect(newProductList[1].ProductID).toEqual(3);
+    expect(newProductList[2].ProductID).toEqual(1);
+  });
+
+  it("should return a list with last element in the first postion", () => {
+    const newProductList = reorderProducts(products, products[2], 0, 2);
+
+    expect(newProductList[0].ProductID).toEqual(3);
+    expect(newProductList[1].ProductID).toEqual(1);
+    expect(newProductList[2].ProductID).toEqual(2);
   });
 });
