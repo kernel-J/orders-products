@@ -57,6 +57,13 @@ const HomePage = () => {
     setLoadingState(DATA_STATES.loaded);
   };
 
+  const moveOrder = async (order: Order, status: string) => {
+    setLoadingState(DATA_STATES.waiting);
+
+    const result = await updateOrderStatus(order, status);
+    setLoadingState(result ? DATA_STATES.loaded : DATA_STATES.error);
+  };
+
   const handleDragEnd = (result: any) => {
     const { source, destination } = result;
     if (!destination) return;
@@ -86,6 +93,8 @@ const HomePage = () => {
         [sourceKey]: sourceClone,
         [destKey]: destClone
       });
+
+      moveOrder(removed, destKey);
     }
   };
 
